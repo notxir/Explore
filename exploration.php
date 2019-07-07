@@ -62,24 +62,24 @@
         </div>
 
         <div class="row"><!--Select a category...-->
-          <div class="col-25">
             <label for="category">หมวดหมู่</label>
             <select name="list3" id="list3">
               <option value="">เลือกหมวด</option>
-              <option value="1">อาคาร/สิ่งก่อสร้าง</option>
-              <option value="equipment_list">ครุภัณฑ์</option>
-              <option value="3">สื่อการสอน</option>
+              <option value="liste_building">อาคารและสิ่งก่อสร้าง</option>
+              <option value="liste_inside">ครุภัณฑ์ในห้องเรียน</option>
+              <option value="liste_outside">ครุภัณฑ์นอกห้องเรียน</option>
+              <option value="liste_electric">ระบบไฟฟ้า</option>
+              <option value="liste_computer">คอมพิวเตอร์</option>
+              <option value="liste_media">สื่อการสอน</option>
             </select>
-          </div>
-          <div class="col-75">
-            <label for="category">ประเภท</label>
-            <select name="list4" id="list4">
-              <option value="">เลือกประเภท</option>
-            </select>
-          </div>
         </div>
 
         <div class="row" id = "listEQ"><!--list of equipment...-->
+        </div>
+
+        <div class="row" id = "Addition"><!--list of addition...-->
+          <label for="category">เพิ่มเติม</label>
+          <textarea id="subject" name="additional" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div>
         <div class="row" id="submitButton">
           <input type="submit" value="Submit">

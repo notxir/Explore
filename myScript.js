@@ -20,19 +20,10 @@ $(function(){
         });
     });
 
-    $("select#list3").change(function(){
-        $.get("data_for_list4.php",{
-            list3:$(this).val()
-        },function(data){ // คืนค่ากลับมา
-               $("select#list4").html(data);
-               $("select#list4").trigger("change");
 
-        });
-   });
-
-  $("select#list4").change(function(){
+  $("select#list3").change(function(){
       $.get("listEquipment.php",{
-        list4:$(this).val()
+        list3:$(this).val()
       },function(data){
              $("#listEQ").html(data);
              $("#listEQ").trigger("change");
