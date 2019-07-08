@@ -2,8 +2,10 @@
   include "config.php";
   session_start();
   date_default_timezone_set("Asia/Bangkok");
+
   $logID_M = str_replace("-","",date("Y-m-d"))."-".$_POST["list2"];
 
+  //for the notification list.
   for ($i=0;$i<sizeof($_POST["levelHelps"]);$i++){
     if(is_array($_POST["levelHelps"])){
       //echo $_SESSION["listCategory"][$i]. $_SESSION["listMessage"][$i] . " --level-- ".$_POST["levelHelps"][$i]."<br>";
@@ -14,7 +16,7 @@
     }
   }
 
-  
+
 
   echo '<script language="javascript">'.'alert("แจ้งเตือนสำเร็จ!")'.'</script>';
   header("Refresh:0.1; url=exploration.php");
