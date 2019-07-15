@@ -15,6 +15,7 @@ th,tr,td{
 #log_table{
   width: 100%;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -51,9 +52,10 @@ input[type=submit]:hover {
 }
 
 .container {
+  width: 90%;
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  padding: 50px;
   opacity: 0.9;
   filter: alpha(opacity=90);
 }
@@ -104,4 +106,23 @@ input[type=submit]:hover {
     display: block;
     text-align: left;
   }
+}
+
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 110%;
+  display: inline;
 }

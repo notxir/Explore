@@ -10,12 +10,12 @@
         " AND list = ".'"'. $_SESSION["listMessage"][$i] . '"';
     	$objQuery = mysql_query($alterQuery)or die(mysql_error());
 
-      echo $alterQuery."<br>";
+      //echo $alterQuery."<br>";
     }
   }
   echo '<script language="javascript">'.'alert("เสร็จสิ้นการประเมิณ!")'.'</script>';
-  //header("Refresh:0.1; url=exploration.php");
+  header("Refresh:0.1; url=exploration.php");
   mysql_close();
   session_destroy();
-  //exit();
+  exit();
 ?>
