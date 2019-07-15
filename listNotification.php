@@ -4,7 +4,7 @@
     include "config.php";
 
     $count = 0;
-    $strSQL="SELECT * FROM notification WHERE SchoolID = ".$_GET["list2"];
+    $strSQL="SELECT * FROM notification WHERE SchoolID = ".$_GET["list2"]. " AND status != 1";
     $objQuery=mysql_query($strSQL);
 
     if (mysql_num_rows($objQuery)>0){
@@ -18,19 +18,21 @@
       $listMessage = array();
 
       while($row=mysql_fetch_array($objQuery)){
-        echo "<tr><td>".$row["logID"]."</td><td>";
-        echo $row["logDate"]. "</td><td>";
-        echo $row["logTime"]. "</td><td>";
-        echo $row["Username"]. "</td><td>";
-        echo $row["Category"]. "</td><td>";
-        echo $row['Message']. "</td><td>";
-        array_push($listCategory,$row['Category']);
-        array_push($listMessage,$row['Message']);
-        echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."normal".'"'." checked></td><td>";
-        echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."fast".'"'." ></td><td>";
-        echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."veryfast".'"'." ></td>";
-        echo "</td></tr>";
-        $count++;
+          echo "<tr><td>".$row["logID"]."</td><td>";
+          echo $row["logDate"]. "</td><td>";
+          echo $row["logTime"]. "</td><td>";
+          echo $row["Username"]. "</td><td>";
+          echo $row["Category"]. "</td><td>";
+          echo $row['Message']. "</td><td>";
+          array_push($listCategory,$row['Category']);
+          array_push($listMessage,$row['Message']);
+          echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."normal".'"'." checked></td><td>";
+          echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."fast".'"'." ></td><td>";
+          echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."veryfast".'"'." ></td>";
+          echo "</td></tr>";
+          $count++;
+          $_SESSION["logID_M_noti"] = $row["logID_M"];
+
       }
       $_SESSION["listCategory"]= $listCategory;
       $_SESSION["listMessage"]= $listMessage;

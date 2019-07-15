@@ -30,6 +30,7 @@ input[type=text], select, textarea {
 label {
   padding: 12px 12px 12px 12px;
   display: inline-block;
+  text-align: center;
 }
 
 input[type=submit] {
