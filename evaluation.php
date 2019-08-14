@@ -40,20 +40,22 @@
 
             if (mysql_num_rows($objQuery)>0){
               echo "<label for="."'notification'".">ผลการสำรวจ</label><br>";
-              echo "<table id='log_table'> <thead> <tr><th rowspan = '2'>No.</th> <th rowspan = '2'>วันที่</th> <th rowspan = '2'>เวลา</th>
-              <th rowspan = '2'>ผู้แจ้ง</th> <th rowspan = '2'>หมวดหมู่</th> <th rowspan = '2'>ข้อความ</th> <th colspan='3'>ระดับความช่วยเหลือ</th></tr>
+              echo "<table id='log_table' border = '1'> <thead> <tr><th rowspan = '2'>วันที่</th> <th rowspan = '2'>เวลา</th> <th rowspan = '2'>ผู้แจ้ง</th>
+              <th rowspan = '2'>หมวดหมู่</th> <th rowspan = '2'>ข้อความ</th> <th rowspan = '2'>รายละเอียด</th> <th colspan='3'>ระดับความช่วยเหลือ</th></tr>
               <tr><th>ปกติ</th> <th>ด่วน</th> <th>เร่งด่วน</th></tr></thead>";
               echo "<tbody><tr><td>";
               $count = 0;
               $listMessage = array();
+              $listDetail = array();
               while($row=mysql_fetch_array($objQuery)){
-                  echo "<tr><td>".$row["logID"]."</td><td>";
-                  echo $row["logDate"]. "</td><td>";
+                  echo "<tr><td>".$row["logDate"]."</td><td>";
                   echo $row["logTime"]. "</td><td>";
                   echo $row["explorer"]. "</td><td>";
                   echo $row["category"]. "</td><td>";
-                  echo $row['list']. "</td><td>";
+                  echo $row["list"]. "</td><td>";
+                  echo $row['detail']. "</td><td>";
                   array_push($listMessage,$row['list']);
+                  array_push($listDetail,$row['detail']);
                   echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."normal".'"'." checked></td><td>";
                   echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."fast".'"'." ></td><td>";
                   echo "<input type='radio' name=".'"'."levelHelps[".$count."]".'"'." value=".'"'."veryfast".'"'." ></td>";
@@ -61,7 +63,9 @@
                   $count++;
                   $_SESSION["logID_M_explore"] = $row["logID_M"];
               }
+
               $_SESSION["listMessage"]= $listMessage;
+              $_SESSION["listDetail"]= $listDetail;
 
             echo "</tbody></table>";
           }else{

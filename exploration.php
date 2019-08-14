@@ -31,8 +31,8 @@
 
       <form action="save_explored.php" method="POST">
         <div class="row"><!--Username-->
-            <label for="username">ชื่อผู้ใช้งาน</label>
-            <input type="text" id="username" name="username" placeholder="ชื่อผู้ใช้..." required>
+            <label for="username">ชื่อ-นามสกุล</label>
+            <input type="text" id="username" name="username" placeholder="ชื่อ-นามสกุล" required>
         </div>
         <div class="row"><!--Select..area/school...-->
           <div class="col-25">
@@ -65,13 +65,36 @@
             $strSQL = "SELECT * FROM liste_building WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_building[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_building" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
+        </div><br>
+
+        <div class="row" id = "building">
+          <label for="category">หมวดหมู่: ปรับปรุงซ่อมแซมอาคารเรียนและสิ่งก่อสร้าง</label><br>
+          <?php
+            $strSQL = "SELECT * FROM liste_fixing WHERE 1";
+            $objQuery = mysql_query($strSQL);
+            while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
+              echo "<div class='col-25' id='mini-box'>";
+              echo "<input type='checkbox' name='list_fixing[]' value ='".$row['E_Name_TH']."'>";
+              echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
+              echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
+            }
+          ?>
         </div><br>
 
         <div class="row" id = "electric">
@@ -80,13 +103,17 @@
             $strSQL = "SELECT * FROM liste_electric WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_electric[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_electric" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div><br>
 
         <div class="row" id = "inside">
@@ -95,13 +122,17 @@
             $strSQL = "SELECT * FROM liste_inside WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_inside[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_inside" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div><br>
 
         <div class="row" id = "outside">
@@ -110,13 +141,17 @@
             $strSQL = "SELECT * FROM liste_outside WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_outside[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_outside" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div><br>
 
         <div class="row" id = "computer">
@@ -125,13 +160,17 @@
             $strSQL = "SELECT * FROM liste_computer WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_computer[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_computer" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div><br>
 
         <div class="row" id = "media">
@@ -140,18 +179,22 @@
             $strSQL = "SELECT * FROM liste_media WHERE 1";
             $objQuery = mysql_query($strSQL);
             while($row = mysql_fetch_assoc($objQuery)){
+              echo "<div class='row'>";
               echo "<div class='col-25' id='mini-box'>";
               echo "<input type='checkbox' name='list_media[]' value ='".$row['E_Name_TH']."'>";
               echo "<label for='box-1'><div><i class='fa fa-check'></i></div>".$row['E_Name_TH']."</label>";
               echo "</div>";
+              echo "<div class='col-75'>";
+              echo "<textarea id='subject' name='".$row['E_Name_TH']."' placeholder='กรอกรายละเอียดที่นี่...'></textarea>";
+              echo "</div>";
+              echo "</div>";
             }
           ?>
-          <textarea id="subject" name="additional_media" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
         </div><br>
 
         <div class="row" id = "other_c">
           <label for="category">หมวดหมู่: เพิ่มเติม</label><br>
-          <textarea id="subject" name="additional_other" placeholder="กรอกรายละเอียดที่นี่..." style="height:100px"></textarea>
+          <textarea id="subject" name="additional_other" placeholder="กรอกรายละเอียดที่นี่..."></textarea>
         </div><br>
 
         <div class="row" id="submitButton">
